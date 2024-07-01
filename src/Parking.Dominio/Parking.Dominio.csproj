@@ -5,4 +5,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Parking.Shared\Parking.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

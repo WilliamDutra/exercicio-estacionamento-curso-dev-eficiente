@@ -2,8 +2,9 @@
 
 namespace Parking.Dominio
 {
-    public enum TipoVaga
+    public enum ETipoVaga
     {
+        Normal,
         Compacto, 
         Grande, 
         Deficiente, 

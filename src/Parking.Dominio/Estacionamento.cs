@@ -29,12 +29,12 @@ namespace Parking.Dominio
             return new Estacionamento(codigo, vagas, totalVagas);
         }
 
-        public void AdicionarVaga(string andar)
+        public void AdicionarVaga(string andar, ETipoVaga tipoVaga = ETipoVaga.Normal)
         {
             if (TotalVagas <= 0)
                 throw new VagaException("Não há mais vagas disponiveis nesse andar!");
             var novoAndar = Andar.Criar(andar);
-            var vaga = Vaga.Criar(novoAndar);
+            var vaga = Vaga.Criar(novoAndar, tipoVaga);
             _Vagas.Add(vaga);
             TotalVagas = TotalVagas - 1;
         }

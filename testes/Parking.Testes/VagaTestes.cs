@@ -8,7 +8,7 @@ namespace Parking.Testes
         public void Deve_cria_uma_vaga()
         {
             var primeiroAndar = Andar.Criar("1° andar");
-            var vaga = Vaga.Criar(primeiroAndar);
+            var vaga = Vaga.Criar(primeiroAndar, ETipoVaga.Normal);
             Assert.Equal(vaga.EstaOcupada, false);
             Assert.NotNull(vaga.Codigo);
         }

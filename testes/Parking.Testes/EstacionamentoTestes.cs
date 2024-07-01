@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Parking.Testes
 {
-    public class EstacionamentoTeste
+    public class EstacionamentoTestes
     {
         [Fact(DisplayName = "Deve criar um estacionamento")]
         public void Deve_criar_um_estacionamento()

@@ -15,7 +15,6 @@ namespace Parking.Testes
             var periodo = new Periodo(DateTime.Parse("2024-07-01 12:00"));
             var vaga = Vaga.Criar(Andar.Criar("1° andar"), ETipoVaga.Normal);
             var ticket = Ticket.Criar(vaga, periodo);
-            
         }
     }
 }

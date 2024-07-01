@@ -11,40 +11,49 @@ namespace Parking.Dominio
 
         public Periodo Periodo { get; private set; }
 
-        public Taxa Taxa { get; private set; }
-
-        public Ticket(Guid codigo, Vaga vaga, Periodo periodo, Taxa taxa)
+        public Ticket(Guid codigo, Vaga vaga, Periodo periodo)
         {
             Codigo = Codigo;
             Vaga = vaga;
             Periodo = periodo;
-            Taxa = taxa;
         }
 
         public static Ticket Criar(Vaga vaga, Periodo periodo)
         {
             var taxa = new Taxa();
-            return new Ticket(Guid.NewGuid(), vaga, periodo, taxa);
+            return new Ticket(Guid.NewGuid(), vaga, periodo);
         }
 
-        public static Ticket Restaurar(Guid codigo, Vaga vaga, Periodo periodo, Taxa taxa)
+        public static Ticket Restaurar(Guid codigo, Vaga vaga, Periodo periodo)
         {
-            return new Ticket(codigo, vaga, periodo, taxa);
+            return new Ticket(codigo, vaga, periodo);
         }
 
-        public void PagarComCredito()
+        public decimal PagarComCredito()
         {
             TipoPagamento = ETipoPagamento.Credito;
+            Periodo.Sair();
+            var taxa = new Taxa();
+            var resultado = taxa.Calcular(Periodo.HorarioEntrada, Periodo.HorarioSaida.Value);
+            return resultado;
         }
 
-        public void PagarComDebito()
+        public decimal PagarComDebito()
         {
             TipoPagamento = ETipoPagamento.Debito;
+            Periodo.Sair();
+            var taxa = new Taxa();
+            var resultado = taxa.Calcular(Periodo.HorarioEntrada, Periodo.HorarioSaida.Value);
+            return resultado;
         }
 
-        public void PagarComPix()
+        public decimal PagarComPix()
         {
             TipoPagamento = ETipoPagamento.Pix;
+            Periodo.Sair();
+            var taxa = new Taxa();
+            var resultado = taxa.Calcular(Periodo.HorarioEntrada, Periodo.HorarioSaida.Value);
+            return resultado;
         }
 
 

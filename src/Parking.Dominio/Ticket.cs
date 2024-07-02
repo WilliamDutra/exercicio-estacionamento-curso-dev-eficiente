@@ -13,14 +13,13 @@ namespace Parking.Dominio
 
         public Ticket(Guid codigo, Vaga vaga, Periodo periodo)
         {
-            Codigo = Codigo;
+            Codigo = codigo;
             Vaga = vaga;
             Periodo = periodo;
         }
 
         public static Ticket Criar(Vaga vaga, Periodo periodo)
         {
-            var taxa = new Taxa();
             return new Ticket(Guid.NewGuid(), vaga, periodo);
         }
 

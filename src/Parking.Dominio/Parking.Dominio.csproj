@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Parking.Shared\Parking.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\Estacionamento\" />
+  </ItemGroup>
+
 </Project>

@@ -16,5 +16,14 @@ namespace Parking.Testes
             var vaga = Vaga.Criar(Andar.Criar("1° andar"), ETipoVaga.Normal);
             var ticket = Ticket.Criar(vaga, periodo);
         }
+
+        [Fact(DisplayName = "Deve pagar um ticket com dinheiro")]
+        public void Deve_pagar_um_ticket_com_dinheiro()
+        {
+            var periodo = new Periodo(DateTime.Parse("2024-07-01 12:00"));
+            var vaga = Vaga.Criar(Andar.Criar("1° andar"), ETipoVaga.Normal);
+            var ticket = Ticket.Criar(vaga, periodo);
+            ticket.PagarComDebito();
+        }
     }
 }

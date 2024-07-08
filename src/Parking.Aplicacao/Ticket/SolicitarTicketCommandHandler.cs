@@ -26,6 +26,8 @@ namespace Parking.Aplicacao.Ticket
 
             var ticket = Entidade.Ticket.Criar(vaga, periodo);
 
+            _parkingRepositorio.SalvarTicket(ticket);
+
             return new CommandResult(true, "ticket emitido com sucesso!");
         }
     }

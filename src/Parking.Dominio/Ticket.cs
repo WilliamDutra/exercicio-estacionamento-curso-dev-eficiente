@@ -11,21 +11,24 @@ namespace Parking.Dominio
 
         public Periodo Periodo { get; private set; }
 
-        public Ticket(Guid codigo, Vaga vaga, Periodo periodo)
+        public EStatusTicket Status { get; private set; }
+
+        public Ticket(Guid codigo, Vaga vaga, Periodo periodo, EStatusTicket status)
         {
             Codigo = codigo;
             Vaga = vaga;
             Periodo = periodo;
+            Status = status;
         }
 
         public static Ticket Criar(Vaga vaga, Periodo periodo)
         {
-            return new Ticket(Guid.NewGuid(), vaga, periodo);
+            return new Ticket(Guid.NewGuid(), vaga, periodo, EStatusTicket.Pendente);
         }
 
-        public static Ticket Restaurar(Guid codigo, Vaga vaga, Periodo periodo)
+        public static Ticket Restaurar(Guid codigo, Vaga vaga, Periodo periodo, EStatusTicket statusTicket)
         {
-            return new Ticket(codigo, vaga, periodo);
+            return new Ticket(codigo, vaga, periodo, statusTicket);
         }
 
         public decimal PagarComCredito()

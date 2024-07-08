@@ -3,24 +3,23 @@ using Parking.Shared;
 
 namespace Parking.Dominio
 {
-    public class Andar : Entidade
+    public class Andar
     {
         public string Numero { get; private set; }
 
-        private Andar(Guid codigo, string numero)
+        private Andar(string numero)
         {
-            Codigo = codigo;
             Numero = numero;
         }
 
         public static Andar Criar(string numero)
         {
-            return new Andar(Guid.NewGuid(), numero);
+            return new Andar(numero);
         }
 
-        public static Andar Restaurar(Guid codigo, string numero)
+        public static Andar Restaurar(string numero)
         {
-            return new Andar(codigo, numero);
+            return new Andar(numero);
         }
 
     }
